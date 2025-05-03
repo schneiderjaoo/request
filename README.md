@@ -15,3 +15,9 @@ E quem teve a vit√≥ria de acordo com o conselho foi quem leva o nome do reposit√
 It would be **request** or **response**, that is, **request** or **response**
 
 And the one who won according to the council was the one who carries the name of the repository, so request it!
+
+# Branch's
+
+- master
+- develop
+- env/devs
