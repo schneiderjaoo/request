@@ -1,18 +1,24 @@
 package com.request.api.modelTest;
 
 import com.request.api.model.User;
+import com.request.api.repository.UserRepository;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
+@SpringBootTest
 public class UserTest {
+    @Autowired
+    private UserRepository userRepository;
 
     @Test
     public void testCreateUser() {
         User u1 = User.createUser("Teste", "abc");
+        User saveUser = userRepository.save(u1);
 
-        assertTrue(u1.getId() > 0);
+        assertNotNull(saveUser.getId());
         assertEquals("Teste", u1.getName());
         assertEquals("abc", u1.getPassword());
     }
