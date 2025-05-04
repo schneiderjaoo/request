@@ -7,8 +7,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class ApiApplication {
 
 	public static void main(String[] args) {
-		System.out.println("Iniciando o Servidor");
-		SpringApplication.run(ApiApplication.class, args);
+		try {
+			System.out.println("Iniciando o Servidor");
+			SpringApplication.run(ApiApplication.class, args);
+		} catch (Exception e) {
+			System.err.println("Erro ao tentar iniciar servidor: "+e.getMessage());
+			e.printStackTrace();
+		}
 	}
 
 }
