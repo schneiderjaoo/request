@@ -1,20 +1,25 @@
 package com.request.api.model;
 
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import org.jetbrains.annotations.NotNull;
 
 @Getter
 @Setter
+@Entity
+@Table(name = "users")
 public class User {
-    private static int contador = 1;
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
     private String name;
     private String password;
 
+    public User() {}
+
     public User(String name, String pass) {
-        this.id = contador++;
         this.name = name;
         this.password = pass;
     }
